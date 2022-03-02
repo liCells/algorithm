@@ -6,11 +6,11 @@ public class 二叉树的四种遍历 {
      * 前序
      * 根结点 -> 左子树 -> 右子树
      */
-    public static void DLR(TreeNode treeNode) {
+    public static void VLR(TreeNode treeNode) {
         if (treeNode == null) return;
         System.out.print(treeNode.val);
-        DLR(treeNode.left);
-        DLR(treeNode.right);
+        VLR(treeNode.left);
+        VLR(treeNode.right);
     }
 
     /**
