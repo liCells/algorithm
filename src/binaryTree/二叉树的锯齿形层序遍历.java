@@ -17,13 +17,13 @@ public class 二叉树的锯齿形层序遍历 {
         if (root == null) return new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        int index = 0;
+        boolean symbol = true;
         while (!queue.isEmpty()) {
             int size = queue.size();
             LinkedList<Integer> list = new LinkedList<>();
             for (int i = 0; i < size; i++) {
                 TreeNode node = queue.poll();
-                if (index % 2 == 0) {
+                if (symbol) {
                     list.addLast(node.val);
                 } else {
                     list.addFirst(node.val);
@@ -35,7 +35,7 @@ public class 二叉树的锯齿形层序遍历 {
                     queue.offer(node.right);
                 }
             }
-            index++;
+            symbol = !symbol;
             levelOrderList.add(list);
         }
         return levelOrderList;
