@@ -7,10 +7,21 @@ package binaryTree;
 public class 路径总和 {
     public static void main(String[] args) {
         System.out.print(hasPathSum(buildTree(), 4));
+        System.out.print(hasPathSum2(buildTree(), 4));
     }
 
     public static boolean hasPathSum(TreeNode root, int targetSum) {
         return LDR(root, targetSum, 0);
+    }
+
+    public static boolean hasPathSum2(TreeNode root, int targetSum) {
+        if (root == null) {
+            return false;
+        }
+        if (root.left == null && root.right == null && targetSum == root.val) {
+            return true;
+        }
+        return hasPathSum2(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 
     public static boolean LDR(TreeNode treeNode, int targetSum, int sum) {
