@@ -17,7 +17,7 @@ public class 恢复二叉搜索树 {
 
     public static void recoverTree(TreeNode root) {
         if (root == null) return;
-        recoverTree(root);
+        LDR(root);
         int box = first.val;
         first.val = second.val;
         second.val = box;
