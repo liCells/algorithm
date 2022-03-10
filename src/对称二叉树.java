@@ -1,26 +1,21 @@
-package binaryTree;
-
 /**
- * https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
- * 力扣 104 二叉树的最大深度
+ * https://leetcode-cn.com/problems/symmetric-tree/
+ * 力扣 101 对称二叉树
+ * binary tree
  */
-public class 二叉树的最大深度 {
-
+public class 对称二叉树 {
     public static void main(String[] args) {
-        System.out.println(maxDepth(buildTree()));
+
     }
 
-    public static int maxDepth(TreeNode root) {
-        if (root == null) return 0;
-        return maxDepth(root, 0);
+    public static boolean isSymmetric(TreeNode root) {
+        return isSame(root.left, root.right);
     }
 
-    public static Integer maxDepth(TreeNode root, Integer depth) {
-        if (root == null) return depth;
-        depth += 1;
-        Integer left = maxDepth(root.left, depth);
-        Integer right = maxDepth(root.right, depth);
-        return Math.max(left, right);
+    public static boolean isSame(TreeNode p, TreeNode q) {
+        if (p == null && q == null) return true;
+        if (p == null || q == null || p.val != q.val) return false;
+        return isSame(p.left, q.right) && isSame(p.right, q.left);
     }
 
     public static TreeNode buildTree() {

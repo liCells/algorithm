@@ -1,10 +1,9 @@
-package binaryTree;
-
 import java.util.*;
 
 /**
  * https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/
  * 力扣 103 二叉树的锯齿形层序遍历
+ * binary tree
  */
 public class 二叉树的锯齿形层序遍历 {
     public static void main(String[] args) {

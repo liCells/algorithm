@@ -1,8 +1,7 @@
-package binaryTree;
-
 /**
  * https://leetcode-cn.com/problems/balanced-binary-tree/
  * 力扣 110 平衡二叉树
+ * binary tree
  * 后序遍历, 注意最后的1+, 这里会倒着向上记录层级, 直到最后层级相差大于1就停止
  */
 public class 平衡二叉树 {

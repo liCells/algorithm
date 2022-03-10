@@ -1,8 +1,7 @@
-package binaryTree;
-
 /**
  * https://leetcode-cn.com/problems/convert-sorted-list-to-binary-search-tree/
  * 力扣 109 有序数组转化为二叉搜索树
+ * binary tree
  * 注意理解中序遍历的顺序
  */
 public class 有序链表转化为二叉搜索树 {

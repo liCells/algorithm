@@ -1,8 +1,7 @@
-package binaryTree;
-
 /**
  * https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
  * 力扣 124 二叉树中的最大路径和
+ * binary tree
  * 本质上就是一个后序遍历
  */
 class 二叉树中的最大路径和 {

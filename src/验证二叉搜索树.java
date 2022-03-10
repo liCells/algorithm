@@ -1,8 +1,7 @@
-package binaryTree;
-
 /**
  * https://leetcode-cn.com/problems/validate-binary-search-tree/
  * 力扣 98 验证二叉搜索树
+ * binary tree
  * 需要知道二叉搜索树的定义, 不是说上一层的root和左右比即可, 而是root右侧的全部都要大于root
  */
 public class 验证二叉搜索树 {

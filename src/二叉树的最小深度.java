@@ -1,11 +1,10 @@
-package binaryTree;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
 /**
  * https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
  * 力扣 111 二叉树的最小深度
+ * binary tree
  */
 public class 二叉树的最小深度 {
 

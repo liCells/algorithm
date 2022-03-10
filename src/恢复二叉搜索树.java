@@ -1,8 +1,7 @@
-package binaryTree;
-
 /**
  * https://leetcode-cn.com/problems/recover-binary-search-tree/
  * 力扣 99 恢复二叉搜索树
+ * binary tree
  * 注意第一个错位的节点只能赋值一次, 不然会被后序第二个错位的前置给覆盖掉
  */
 public class 恢复二叉搜索树 {

@@ -1,29 +1,29 @@
-package binaryTree;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
- * 力扣 144 二叉树的前序遍历
+ * https://leetcode-cn.com/problems/diameter-of-binary-tree/
+ * 力扣 543 二叉树的直径
+ * binary tree
+ * 这道题其实是求左右子树的深度, 然后相加即可
  */
-public class 二叉树的前序遍历 {
+public class 二叉树的直径 {
+
+    static int sum = 0;
+
     public static void main(String[] args) {
-        System.out.println(preorderTraversal(buildTree()));
+        System.out.println(diameterOfBinaryTree(buildTree()));
     }
 
-    static List<Integer> preorderList = new ArrayList<>();
-
-    public static List<Integer> preorderTraversal(TreeNode root) {
-        preorderTraverse(root);
-        return preorderList;
+    public static int diameterOfBinaryTree(TreeNode root) {
+        if (root == null) return 0;
+        maxDepth(root);
+        return sum;
     }
 
-    public static void preorderTraverse(TreeNode root) {
-        if (root == null) return;
-        preorderList.add(root.val);
-        preorderTraversal(root.left);
-        preorderTraversal(root.right);
+    public static Integer maxDepth(TreeNode root) {
+        if (root == null) return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        sum = Math.max(sum, left + right);
+        return 1 + Math.max(left, right);
     }
 
     public static TreeNode buildTree() {

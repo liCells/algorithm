@@ -1,6 +1,7 @@
 /**
  * https://leetcode-cn.com/problems/maximum-subarray/
  * 力扣 53 最大子数组和
+ * array
  */
 public class 最大子数组和 {
     public static void main(String[] args) {

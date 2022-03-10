@@ -1,8 +1,7 @@
-package binaryTree;
-
 /**
  * https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/
  * 力扣 108 将有序数组转化为二叉搜索树
+ * binary tree
  */
 public class 将有序数组转化为二叉搜索树 {
     public static void main(String[] args) {

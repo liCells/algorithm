@@ -1,5 +1,3 @@
-package binaryTree;
-
 public class 二叉树的四种遍历 {
 
     /**

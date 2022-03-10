@@ -1,24 +1,24 @@
-package binaryTree;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
- * 力扣 102 二叉树的层序遍历
- * 注意如何判断层级
+ * https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
+ * 力扣 107 二叉树的层序遍历II
+ * binary tree
  */
-public class 二叉树的层序遍历 {
+public class 二叉树的层序遍历II {
     public static void main(String[] args) {
-        System.out.println(levelOrder(buildTree()));
+        System.out.println(levelOrderBottom(buildTree()));
     }
 
     static List<List<Integer>> levelOrderList = new ArrayList<>();
 
-    public static List<List<Integer>> levelOrder(TreeNode root) {
+    public static List<List<Integer>> levelOrderBottom(TreeNode root) {
         if (root == null) return new ArrayList<>();
         levelOrderList.add(new ArrayList<>(List.of(root.val)));
         level(root, 1);
+        Collections.reverse(levelOrderList);
         return levelOrderList;
     }
 
@@ -44,11 +44,12 @@ public class 二叉树的层序遍历 {
     }
 
     public static TreeNode buildTree() {
-        TreeNode right1_left2 = new TreeNode(15);
-        TreeNode right1_right2 = new TreeNode(7, new TreeNode(1), null);
-        TreeNode left1 = new TreeNode(9);
-        TreeNode right1 = new TreeNode(20, right1_left2, right1_right2);
-        return new TreeNode(3, left1, right1);
+        TreeNode right1_left2 = new TreeNode(3);
+        TreeNode right1_right2 = new TreeNode(-1, new TreeNode(1), new TreeNode(2));
+        TreeNode left1_left2 = new TreeNode(1);
+        TreeNode left1 = new TreeNode(2, left1_left2, null);
+        TreeNode right1 = new TreeNode(4, right1_left2, right1_right2);
+        return new TreeNode(0, left1, right1);
     }
 
     static class TreeNode {

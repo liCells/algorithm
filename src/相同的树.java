@@ -1,8 +1,7 @@
-package binaryTree;
-
 /**
  * https://leetcode-cn.com/problems/same-tree/
  * 力扣 100 相同的树
+ * binary tree
  */
 public class 相同的树 {
     public static void main(String[] args) {

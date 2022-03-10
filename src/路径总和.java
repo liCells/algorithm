@@ -1,8 +1,7 @@
-package binaryTree;
-
 /**
  * https://leetcode-cn.com/problems/path-sum/
  * 力扣 112 路径总和
+ * binary tree
  */
 public class 路径总和 {
     public static void main(String[] args) {

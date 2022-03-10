@@ -1,11 +1,10 @@
-package hash;
-
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * https://leetcode-cn.com/problems/contains-duplicate/
  * 力扣 217 存在重复元素
+ * hash array
  */
 public class 存在重复元素 {
     public static void main(String[] args) {
