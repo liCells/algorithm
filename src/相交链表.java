@@ -28,16 +28,17 @@ public class 相交链表 {
 
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;
+        ListNode var1 = headA, var2 = headB;
         Set<ListNode> set = new HashSet<>();
-        while (headA != null) {
-            set.add(headA);
-            headA = headA.next;
+        while (var1 != null) {
+            set.add(var1);
+            var1 = var1.next;
         }
-        while (headB != null) {
-            if (set.contains(headB)) {
-                return headB;
+        while (var2 != null) {
+            if (set.contains(var2)) {
+                return var2;
             }
-            headB = headB.next;
+            var2 = var2.next;
         }
         return null;
     }
