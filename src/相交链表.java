@@ -26,6 +26,11 @@ public class 相交链表 {
         System.out.println(getIntersectionNode(headA, headB).val);
     }
 
+    /**
+     * m == headA的长度 n == headB的长度
+     * O(m+n)
+     * O(m)
+     */
     public static ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if (headA == null || headB == null) return null;
         ListNode var1 = headA, var2 = headB;
@@ -41,6 +46,21 @@ public class 相交链表 {
             var2 = var2.next;
         }
         return null;
+    }
+
+    /**
+     * m == headA的长度 n == headB的长度
+     * O(m+n)
+     * O(1)
+     */
+    public static ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) return null;
+        ListNode var1 = headA, var2 = headB;
+        while (var1 != var2) {
+            var1 = var1 == null ? headB : headA.next;
+            var2 = var2 == null ? headA : headB.next;
+        }
+        return var1;
     }
 
     static class ListNode {
