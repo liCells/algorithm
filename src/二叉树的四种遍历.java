@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class 二叉树的四种遍历 {
 
     /**
@@ -39,20 +42,18 @@ public class 二叉树的四种遍历 {
      */
     public static void levelOrder(TreeNode treeNode) {
         if (treeNode == null) return;
-        System.out.print(treeNode.val);
-        level(treeNode);
-    }
-
-    public static void level(TreeNode treeNode) {
-        if (treeNode == null) return;
-        if (treeNode.left != null) {
-            System.out.print(treeNode.left.val);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(treeNode);
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            System.out.println(node.val);
+            if (node.left != null) {
+                queue.offer(node.left);
+            }
+            if (node.right != null) {
+                queue.offer(node.right);
+            }
         }
-        if (treeNode.right != null) {
-            System.out.print(treeNode.right.val);
-        }
-        level(treeNode.left);
-        level(treeNode.right);
     }
 
     public static void main(String[] args) {
@@ -63,7 +64,7 @@ public class 二叉树的四种遍历 {
     }
 
     public static TreeNode buildTree() {
-        TreeNode left1_left2 = new TreeNode(4);
+        TreeNode left1_left2 = new TreeNode(4, new TreeNode(8), null);
         TreeNode left1_right2 = new TreeNode(5);
         TreeNode right1_left2 = new TreeNode(6);
         TreeNode right1_right2 = new TreeNode(7);
