@@ -11,13 +11,7 @@ public class 相同的树 {
     public static boolean isSameTree(TreeNode p, TreeNode q) {
         if (p == null && q == null) return true;
         if (p == null || q == null || p.val != q.val) return false;
-        return isSame(p, q);
-    }
-
-    public static boolean isSame(TreeNode p, TreeNode q) {
-        if (p == null && q == null) return true;
-        if (p == null || q == null || p.val != q.val) return false;
-        return isSame(p.left, q.left) && isSame(p.right, q.right);
+        return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
     }
 
     public static TreeNode buildTree() {
