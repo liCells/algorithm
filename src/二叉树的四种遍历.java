@@ -56,21 +56,54 @@ public class 二叉树的四种遍历 {
         }
     }
 
+    /**
+     * Morris 中序遍历
+     */
+    public static void morrisInOrderTraversal(TreeNode root) {
+        TreeNode cur = root, mostRight;
+        // 当前节点为空时, 说明访问完成
+        while (cur != null) {
+            // 左子树不存在时, 访问&设置右节点
+            if (cur.left == null) {
+                System.out.println(cur.val);
+                cur = cur.right;
+            } else {
+                mostRight = cur.left;
+                // 左子树存在, 寻找前驱节点. 注意寻找前驱节点时, 会不断深入右子树, 判断是否是已访问过的节点
+                while (mostRight.right != null && mostRight.right != cur) {
+                    mostRight = mostRight.right;
+                }
+                if (mostRight.right == null) {
+                    // 前驱节点未访问过, 存放后继节点
+                    mostRight.right = cur;
+                    cur = cur.left;
+                } else {
+                    // 前驱节点已访问过, 恢复树结构
+                    System.out.println(cur.val);
+                    // 确定访问过左子树后, 访问当前节点
+                    mostRight.right = null;
+                    cur = cur.right;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        // DLR(buildTree());
-        // LDR(buildTree());
-        // LRD(buildTree());
-        levelOrder(buildTree());
+//         DLR(buildTree());
+//         LDR(buildTree());
+//         LRD(buildTree());
+//        levelOrder(buildTree());
+        morrisInOrderTraversal(buildTree());
     }
 
     public static TreeNode buildTree() {
-        TreeNode left1_left2 = new TreeNode(4, new TreeNode(8), null);
-        TreeNode left1_right2 = new TreeNode(5);
-        TreeNode right1_left2 = new TreeNode(6);
+        TreeNode left1_left2 = new TreeNode(1);
+        TreeNode left1_right2 = new TreeNode(3);
+        TreeNode right1_left2 = new TreeNode(5);
         TreeNode right1_right2 = new TreeNode(7);
         TreeNode left1 = new TreeNode(2, left1_left2, left1_right2);
-        TreeNode right1 = new TreeNode(3, right1_left2, right1_right2);
-        return new TreeNode(1, left1, right1);
+        TreeNode right1 = new TreeNode(6, right1_left2, right1_right2);
+        return new TreeNode(4, left1, right1);
     }
 
     static class TreeNode {
