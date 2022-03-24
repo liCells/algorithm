@@ -43,6 +43,24 @@ public class 二叉树的四种遍历 {
     }
 
     /**
+     * 中序 非递归
+     * 左子树 -> 根结点 -> 右子树
+     */
+    public static void LDRNonRecursive(TreeNode treeNode) {
+        if (treeNode == null) return;
+        Stack<TreeNode> stack = new Stack<>();
+        while (treeNode != null || !stack.empty()) {
+            while (treeNode != null) {
+                stack.push(treeNode);
+                treeNode = treeNode.left;
+            }
+            treeNode = stack.pop();
+            System.out.print(treeNode.val);
+            treeNode = treeNode.right;
+        }
+    }
+
+    /**
      * 后序
      * 左子树 -> 右子树 -> 根结点
      */
@@ -51,6 +69,26 @@ public class 二叉树的四种遍历 {
         LRD(treeNode.left);
         LRD(treeNode.right);
         System.out.print(treeNode.val);
+    }
+
+    /**
+     * 后序 非递归
+     * 左子树 -> 右子树 -> 根结点
+     */
+    public static void LRDNonRecursive(TreeNode treeNode) {
+        if (treeNode == null) return;
+        Stack<TreeNode> stack = new Stack<>();
+        LinkedList<Integer> list = new LinkedList<>();
+        while (treeNode != null || !stack.empty()) {
+            while (treeNode != null) {
+                list.addFirst(treeNode.val);
+                stack.push(treeNode);
+                treeNode = treeNode.right;
+            }
+            treeNode = stack.pop();
+            treeNode = treeNode.left;
+        }
+        System.out.print(list);
     }
 
     /**
@@ -106,10 +144,12 @@ public class 二叉树的四种遍历 {
     }
 
     public static void main(String[] args) {
-        VLR(buildTree());
-        VLRNonRecursive(buildTree());
+//        VLR(buildTree());
+//        VLRNonRecursive(buildTree());
 //        LDR(buildTree());
-//        LRD(buildTree());
+//        LDRNonRecursive(buildTree());
+        LRD(buildTree());
+        LRDNonRecursive(buildTree());
 //        levelOrder(buildTree());
 //        morrisInOrderTraversal(buildTree());
     }
