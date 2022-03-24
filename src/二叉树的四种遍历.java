@@ -1,5 +1,4 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class 二叉树的四种遍历 {
 
@@ -12,6 +11,24 @@ public class 二叉树的四种遍历 {
         System.out.print(treeNode.val);
         VLR(treeNode.left);
         VLR(treeNode.right);
+    }
+
+    /**
+     * 前序 非递归
+     * 根结点 -> 左子树 -> 右子树
+     */
+    public static void VLRNonRecursive(TreeNode treeNode) {
+        if (treeNode == null) return;
+        Stack<TreeNode> stack = new Stack<>();
+        while (treeNode != null || !stack.empty()) {
+            while (treeNode != null) {
+                System.out.print(treeNode.val);
+                stack.push(treeNode);
+                treeNode = treeNode.left;
+            }
+            treeNode = stack.pop();
+            treeNode = treeNode.right;
+        }
     }
 
     /**
@@ -89,21 +106,27 @@ public class 二叉树的四种遍历 {
     }
 
     public static void main(String[] args) {
-//         DLR(buildTree());
-//         LDR(buildTree());
-//         LRD(buildTree());
+        VLR(buildTree());
+        VLRNonRecursive(buildTree());
+//        LDR(buildTree());
+//        LRD(buildTree());
 //        levelOrder(buildTree());
-        morrisInOrderTraversal(buildTree());
+//        morrisInOrderTraversal(buildTree());
     }
 
+    /**
+     * 1
+     * 2   3
+     * 4 5 6 7
+     */
     public static TreeNode buildTree() {
-        TreeNode left1_left2 = new TreeNode(1);
-        TreeNode left1_right2 = new TreeNode(3);
-        TreeNode right1_left2 = new TreeNode(5);
+        TreeNode left1_left2 = new TreeNode(4);
+        TreeNode left1_right2 = new TreeNode(5);
+        TreeNode right1_left2 = new TreeNode(6);
         TreeNode right1_right2 = new TreeNode(7);
         TreeNode left1 = new TreeNode(2, left1_left2, left1_right2);
-        TreeNode right1 = new TreeNode(6, right1_left2, right1_right2);
-        return new TreeNode(4, left1, right1);
+        TreeNode right1 = new TreeNode(3, right1_left2, right1_right2);
+        return new TreeNode(1, left1, right1);
     }
 
     static class TreeNode {
