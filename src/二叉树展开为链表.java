@@ -8,10 +8,32 @@ public class 二叉树展开为链表 {
 
     public static void main(String[] args) {
         TreeNode treeNode = buildTree();
-        flatten(treeNode);
+        flatten2(treeNode);
         System.out.println(treeNode);
     }
 
+    public static void flatten2(TreeNode root) {
+        if (root == null) return;
+        TreeNode cur = root;
+        while (cur != null) {
+            // 确认有没有左子树
+            if (cur.left != null) {
+                TreeNode next = cur.left;
+                TreeNode mostRight = next;
+                // 找到左子树的最右侧
+                while (mostRight.right != null) {
+                    mostRight = mostRight.right;
+                }
+                // 将上一级的右子树放到其左侧的最右侧
+                mostRight.right = cur.right;
+                cur.left = null;
+                cur.right = next;
+            }
+            cur = cur.right;
+        }
+    }
+
+    // ---------------------------------------------------
     static LinkedList<TreeNode> list = new LinkedList<>();
 
     public static void flatten(TreeNode root) {
