@@ -3,8 +3,18 @@
  */
 public class SpinWords {
     public static void main(String[] args) {
-        assert ("Hey wollef sroirraw".equals(spinWords("Hey fellow warriors")));
+        assert ("Hey wollef sroirraw".equals(spinWords1("Hey fellow warriors")));
         System.out.println(spinWords("Hey fellow warriors"));
+    }
+
+    public static String spinWords1(String sentence) {
+        String[] arr = sentence.split(" ");
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length() > 4) {
+                arr[i] = new StringBuilder(arr[i]).reverse().toString();
+            }
+        }
+        return String.join(" ", arr);
     }
 
     public static String spinWords(String sentence) {
