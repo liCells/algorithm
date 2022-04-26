@@ -29,6 +29,18 @@ public class ReversedStrings {
         return str;
     }
 
+    public static String solution3(String str) {
+        // Your code here...
+        List<String> list = new ArrayList<>(Arrays.stream(str.split("")).toList());
+        Collections.reverse(list);
+        return String.join("", list);
+    }
+
+    public static String solution4(String str) {
+        // Your code here...
+        return new StringBuilder(str).reverse().toString();
+    }
+
     public static String solution(String str) {
         // Your code here...
         String string = "";
